@@ -7,6 +7,8 @@ COPY package*.json .
 RUN npm install
 # Copy app files
 COPY . .
+# Run Test
+RUN npm test
 # Expose port
 EXPOSE 8080
 # Start the app
