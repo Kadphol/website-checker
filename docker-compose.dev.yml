@@ -1,9 +1,9 @@
 version: "3.8"
 
 services:
-  app:
-    container_name: app-dev
-    image: app-dev
+  client:
+    container_name: client-dev
+    image: client-dev
     build:
       context: ./frontend
       target: dev
@@ -11,3 +11,13 @@ services:
       - ./frontend/src:/app/src
     ports:
       - 3000:3000
+  app:
+    container_name: app-dev
+    image: app-dev
+    build:
+        context: ./backend
+        target: dev
+    volumes:
+      - ./backend/src:/app/src
+    ports:
+      - 8080:8080
