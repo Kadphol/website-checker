@@ -19,11 +19,16 @@ function readFile(path) {
 }
 
 uploadRoute.route("/").post(upload.single("file"), (req, res, next) => {
-  const data = readFile(req.file.path);
-  let promiseList = data.map(url => getStatus(url));
-  Promise.all(promiseList).then(resultList => {
-    return res.json(resultList);
-  });
+  if(req.file) {
+    const data = readFile(req.file.path);
+    let promiseList = data.map(url => getStatus(url));
+    Promise.all(promiseList).then(resultList => {
+      return res.json(resultList);
+    });
+  } else {
+    return res.statusCode(500).send("File not found");
+  }
+  
 });
 
 module.exports = {
