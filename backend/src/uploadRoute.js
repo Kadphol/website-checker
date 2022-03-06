@@ -1,5 +1,5 @@
 const express = require("express"),
-  router = express.Router(),
+  uploadRoute = express.Router(),
   upload = require('./upload'),
   fs = require('fs'),
   request = require('request');
@@ -10,15 +10,24 @@ function getStatus(url) {
       resolve({site: url, status: (!error && response.statusCode) ? "Up": "Down"});
     });
   });
+};
+
+function readFile(path) {
+  const raw = fs.readFileSync(path, 'utf8');
+  const data = raw.split(/\r?\n/);
+  return data;
 }
 
-router.route("/").post(upload.single("file"), (req, res, next) => {
-  const raw = fs.readFileSync(req.file.path, 'utf8');
-  const data = raw.split(/\r?\n/);
+uploadRoute.route("/").post(upload.single("file"), (req, res, next) => {
+  const data = readFile(req.file.path);
   let promiseList = data.map(url => getStatus(url));
   Promise.all(promiseList).then(resultList => {
     return res.json(resultList);
   });
 });
 
-module.exports = router;
+module.exports = {
+  uploadRoute,
+  getStatus: getStatus,
+  readFile: readFile
+}
