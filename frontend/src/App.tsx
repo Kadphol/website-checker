@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Uploader from './components/uploader/uploader.component';
 
@@ -8,7 +7,7 @@ function App() {
     <div className="App">
       <div className='container'>
         <div className='row justify-content-center'>
-          <div className='col-sm-8 col-md-6 col-lg-6'>
+          <div className='col-sm-8 col-md-6 col-lg-4'>
             <p className='text-muted'><b>Website Checker</b></p>
             <Uploader />
           </div>
