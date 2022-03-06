@@ -26,7 +26,7 @@ uploadRoute.route("/").post(upload.single("file"), (req, res, next) => {
       return res.json(resultList);
     });
   } else {
-    return res.statusCode(500).send("File not found");
+    return res.status(500).send("File not found");
   }
   
 });

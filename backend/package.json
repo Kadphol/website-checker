@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon ./index.js",
-    "test": "mocha ./test/**.test.js --timout 100000 --exit"
+    "test": "mocha ./test/**.test.js --timout 300000 --exit"
   },
   "keywords": [],
   "author": "",
