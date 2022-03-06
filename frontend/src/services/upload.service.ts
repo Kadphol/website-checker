@@ -1,4 +1,4 @@
-import http from '../http-common';
+import http from '../configs/http-common';
 
 export const upload = (file: File , progressEvent: any) => {
   let formData = new FormData();
