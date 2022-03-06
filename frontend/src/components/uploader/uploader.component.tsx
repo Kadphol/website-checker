@@ -20,7 +20,7 @@ const Uploader = () => {
   const [usedTime, setUsedTime] = useState(0);
 
   const onDrop = useCallback((acceptedFiles : File[]) => {
-    if(acceptedFiles !== undefined) {
+    if(acceptedFiles !== undefined && !inProgress) {
       setFiles(acceptedFiles[0]);
       if(acceptedFiles[0]) {
         setStatusList([]);
@@ -43,7 +43,7 @@ const Uploader = () => {
       }
     }
 
-  }, [files]);
+  }, [inProgress]);
 
   const {
     getRootProps,
@@ -83,6 +83,9 @@ const Uploader = () => {
         }
         {
           !isDragReject && <h5>Drag your .csv file to start uploading.</h5>
+        }
+        {
+          isDragAccept && inProgress && <h5 className="text-danger">File is Uploading!</h5>
         }
         <h5 style={lineStyle}><span style={textStyle}>OR</span></h5>
         <button className="btn btn-primary">Browse File</button>
