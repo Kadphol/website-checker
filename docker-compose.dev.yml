@@ -11,9 +11,9 @@ services:
       - ./frontend/src:/app/src
     ports:
       - 3000:3000
-  app:
-    container_name: app-dev
-    image: app-dev
+  api:
+    container_name: api-dev
+    image: api-dev
     build:
         context: ./backend
         target: dev
@@ -21,3 +21,10 @@ services:
       - ./backend/src:/app/src
     ports:
       - 8080:8080
+  nginx:
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: .
+    ports:
+      - '80:80'
