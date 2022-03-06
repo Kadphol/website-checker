@@ -15,7 +15,7 @@ const timeDisplay = (timeUsed: number) => {
   let display = "";
   if(hours >= 1) display += hours + " hour"
   if(minutes >= 1) display += (hours>=1)? " and " + minutes + " minute":  minutes + " minute";
-  if(seconds > 0) display += (minutes>=1)? " and " + seconds + " second": seconds + " second";
+  if(seconds > 0) display += (minutes>=1||hours>=1)? " and " + seconds.toFixed(3) + " second": seconds.toFixed(3) + " second";
   return display;
 }
 
