@@ -1,9 +1,8 @@
-up-dev:
+up:
 	docker-compose -f docker-compose.dev.yml up --force-recreate --build -d
-	docker image prune -f
 
-down-dev:
+down:
 	docker-compose -f docker-compose.dev.yml down
 
-build-dev:
-	docker-compose -f docker-compose.dev.yml build --no-cache
+build:
+	docker-compose -f docker-compose.dev.yml build
