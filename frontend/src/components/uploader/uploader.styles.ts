@@ -6,7 +6,7 @@ export const baseStyle:CSS.Properties = {
     padding: '20px',
     margin: '10px 0',
     borderWidth: '3',
-    borderRadius: '3',
+    borderRadius: '15px',
     borderColor: '#B7B7B7',
     borderStyle: 'dashed',
     backgroundColor: '#D5DAE8',
@@ -41,7 +41,7 @@ export const textStyle: CSS.Properties = {
 }
 
 export const iconStyle: CSS.Properties = {
-  maxWidth: '15%',
+  maxWidth: '20%',
   height: 'auto',
   margin: '10px'
 }
