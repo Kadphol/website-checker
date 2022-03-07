@@ -2,7 +2,7 @@
 
 website that can upload the list of websites as a CSV file. The service will check all of those websites' availability and show their status in the UI.
 
-## Usage
+## How to Run with Docker
 
 To run service using docker-compose:
 
@@ -16,8 +16,6 @@ or using Make file to run command:
 make up
 ```
 
-After service is running, website can be reach on [http://localhost:3000](http://localhost:3000 "Website Checker").
-
 You can put the running service down by using this command:
 
 ```bash
@@ -29,3 +27,21 @@ or using Make file command:
 ```bash
 make down
 ```
+
+## How to Run locally
+
+Run frontend with command:
+
+```bash
+cd frontend && npm start
+```
+
+Run backend with command:
+
+```bash
+cd backend && npm start
+```
+
+## Usage
+
+After service is running, website can be reach on [http://localhost:3000](http://localhost:3000 "Website Checker").
