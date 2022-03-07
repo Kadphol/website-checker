@@ -24,6 +24,7 @@ describe('Servers test', function() {
         res.should.have.status(200);
         res.should.be.json;
         res.body.should.be.a('array');
+        res.body.should.have.length(8);
         done();
       });
   });
@@ -43,19 +44,6 @@ describe('Servers test', function() {
       .post('/upload')
       .end(function(err, res) {
         res.should.have.status(500);
-        done();
-      });
-  });
-
-  it('upload correct response', function(done) {
-    chai.request(APP_URL)
-      .post('/upload')
-      .attach('file', __dirname + "/upload/test.csv")
-      .end(function(err, res) {
-        res.should.have.status(200);
-        res.should.be.json;
-        res.body.should.be.a('array');
-        res.body.should.have.length(100);
         done();
       });
   });
